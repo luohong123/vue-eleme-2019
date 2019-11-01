@@ -1,0 +1,21 @@
+// 外部的库和框架的css文件
+
+
+// 初始化css
+@import 'base/_reset.scss';
+@import 'base/_common.scss';
+
+// 工具和帮助
+@import 'utils/_varables';
+@import 'utils/_function.scss';
+@import 'utils/_mixins.scss';
+
+// 布局
+@import 'layout/_header.scss';
+@import 'layout/_footer.scss';
+
+// page
+
+
+// 主题皮肤
+@import 'theme/_default.scss';
