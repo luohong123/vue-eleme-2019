@@ -11,5 +11,6 @@ import '../mock';
 import { mockXHR } from '../mock';
 mockXHR();
 new Vue({
+  el: '#app',
   render: h => h(App)
-}).$mount('#app');
+});
