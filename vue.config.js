@@ -39,8 +39,8 @@ module.exports = {
           ['^' + VUE_APP_BASE_API]: ''
         }
       }
-    },
-    after: require('./mock/mock-server.js')
+    }
+    // after: require('./mock/mock-server.js') // 启动有问题，未解决
   },
   css: {
     loaderOptions: {
@@ -119,11 +119,6 @@ module.exports = {
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
             chunks: 'initial' // only package third parties that are initially dependent
-          },
-          elementUI: {
-            name: 'chunk-elementUI', // split elementUI into a single package
-            priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-            test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
           },
           commons: {
             name: 'chunk-commons',

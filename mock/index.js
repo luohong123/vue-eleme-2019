@@ -1,14 +1,14 @@
+console.log('mockstart');
 import Mock from 'mockjs';
 import product from './product';
-const mocks = [...product];
-// for front mock
-// please use it cautiously, it will redefine XMLHttpRequest,
-// which will cause many of your third-party libraries to be invalidated(like progress event).
+const mocks = [
+  ...product
+];
 /**
  * @param {string} url
  * @returns {Object}
  */
-export function param2Obj(url) {
+function param2Obj(url) {
   const search = url.split('?')[1];
   if (!search) {
     return {};
@@ -23,6 +23,10 @@ export function param2Obj(url) {
       '"}'
   );
 }
+// for front mock
+// please use it cautiously, it will redefine XMLHttpRequest,
+// which will cause many of your third-party libraries to be invalidated(like progress event).
+
 export function mockXHR() {
   // mock patch
   // https://github.com/nuysoft/Mock/issues/300
@@ -68,7 +72,7 @@ export function mockXHR() {
 // for mock server
 const responseFake = (url, type, respond) => {
   return {
-    url: new RegExp(`/mock${url}`),
+    url: new RegExp(`mock/${url}`),
     type: type || 'get',
     response(req, res) {
       res.json(

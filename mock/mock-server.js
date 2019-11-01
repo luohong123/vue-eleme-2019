@@ -2,21 +2,25 @@ const chokidar = require('chokidar');
 const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const path = require('path');
-
+const { default: mocks } = require('./index.js');
 const mockDir = path.join(process.cwd(), 'mock');
-
 function registerRoutes(app) {
   let mockLastIndex;
-  const { default: mocks } = require('./index.js.js');
-  for (const mock of mocks) {
-    app[mock.type](mock.url, mock.response);
-    mockLastIndex = app._router.stack.length;
-  }
-  const mockRoutesLength = Object.keys(mocks).length;
+  console.log(mocks);
+  // const mocks = require('./index.js');
+  // for (const mock of mocks) {
+  //   app[mock.type](mock.url, mock.response);
+  //   mockLastIndex = app._router.stack.length;
+  // }
+  // const mockRoutesLength = Object.keys(mocks).length;
   return {
-    mockRoutesLength: mockRoutesLength,
-    mockStartIndex: mockLastIndex - mockRoutesLength
+    mockRoutesLength: 0,
+    mockStartIndex: mockLastIndex - 0
   };
+  // return {
+  //   mockRoutesLength: mockRoutesLength,
+  //   mockStartIndex: mockLastIndex - mockRoutesLength
+  // };
 }
 
 function unregisterRoutes() {

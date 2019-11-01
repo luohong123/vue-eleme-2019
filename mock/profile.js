@@ -71,15 +71,15 @@ export default [
   },
 
   {
-    url: '/product/detail',
+    url: '/article/detail',
     type: 'get',
     response: config => {
       const { id } = config.query;
-      for (const product of List) {
-        if (product.id === +id) {
+      for (const article of List) {
+        if (article.id === +id) {
           return {
             code: 20000,
-            data: product
+            data: article
           };
         }
       }
@@ -87,7 +87,7 @@ export default [
   },
 
   {
-    url: '/product/pv',
+    url: '/article/pv',
     type: 'get',
     response: _ => {
       return {
@@ -105,7 +105,7 @@ export default [
   },
 
   {
-    url: '/product/create',
+    url: '/article/create',
     type: 'post',
     response: _ => {
       return {
@@ -116,7 +116,7 @@ export default [
   },
 
   {
-    url: '/product/update',
+    url: '/article/update',
     type: 'post',
     response: _ => {
       return {

@@ -8,9 +8,12 @@ Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 //
 import '../mock';
-import { mockXHR } from '../mock';
+import { mockXHR } from '../mock/index';
 mockXHR();
+
+import router from './router';
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
 });
