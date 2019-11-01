@@ -7,6 +7,7 @@ function resolve(dir) {
 // 默认端口为 8080
 const port = process.env.port;
 const VUE_APP_BASE_API = '/dev-api';
+console.log(process.env.NODE_ENV, 'process.env.NODE_ENV');
 module.exports = {
   /**
    * You will need to set publicPath if you plan to deploy your site under a sub path,
