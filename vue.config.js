@@ -7,6 +7,7 @@ function resolve(dir) {
 // 默认端口为 8080
 const port = process.env.port;
 const VUE_APP_BASE_API = '/dev-api';
+const name = 'vue-eleme-2019';
 console.log(process.env.NODE_ENV, 'process.env.NODE_ENV');
 module.exports = {
   /**
@@ -16,14 +17,11 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: './',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-eleme-2019/' : '/',
   outputDir: 'docs',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
-  performance: {
-    hints: false // resolve asset size limit
-  },
   devServer: {
     port: port,
     open: true,
