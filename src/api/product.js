@@ -1,8 +1,8 @@
 import request from '@/utils/request';
 
-export function product(param) {
+export function productList(param) {
   return request({
-    url: '/product',
+    url: '/product/list',
     method: 'get',
     data: param
   });

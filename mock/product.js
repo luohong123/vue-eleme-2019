@@ -33,7 +33,7 @@ for (let i = 0; i < count; i++) {
 
 export default [
   {
-    url: '/product',
+    url: '/product/list',
     type: 'get',
     response: config => {
       const {
@@ -71,7 +71,7 @@ export default [
   },
 
   {
-    url: '/product/detail',
+    url: '/article/detail',
     type: 'get',
     response: config => {
       const { id } = config.query;
@@ -87,9 +87,9 @@ export default [
   },
 
   {
-    url: '/product/pv',
+    url: '/article/pv',
     type: 'get',
-    response: () => {
+    response: _ => {
       return {
         code: 20000,
         data: {
@@ -105,9 +105,9 @@ export default [
   },
 
   {
-    url: '/product/create',
+    url: '/article/create',
     type: 'post',
-    response: () => {
+    response: _ => {
       return {
         code: 20000,
         data: 'success'
@@ -118,7 +118,7 @@ export default [
   {
     url: '/article/update',
     type: 'post',
-    response: () => {
+    response: _ => {
       return {
         code: 20000,
         data: 'success'

@@ -15,11 +15,14 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: '/',
-  outputDir: 'dist',
+  publicPath: './',
+  outputDir: 'docs',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  performance: {
+    hints: false // resolve asset size limit
+  },
   devServer: {
     port: port,
     open: true,
@@ -27,21 +30,18 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    // 由于本项目数据通过easy-mock和mockjs模拟，不存在跨域问题，无需配置代理;
-    // 参考：https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/essentials/mock-api.html#%E7%A7%BB%E9%99%A4
     proxy: {
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [VUE_APP_BASE_API]: {
-        target: `http://localhost:${port}/mock`,
+        target: `http://127.0.0.1:${port}/mock`,
         changeOrigin: true,
         pathRewrite: {
           ['^' + VUE_APP_BASE_API]: ''
         }
       }
     },
-    // 移除 mock-server
-    after: require('./_mock/mock-server.js')
+    after: require('./mock/mock-server.js')
   },
   css: {
     loaderOptions: {

@@ -7,7 +7,9 @@ Vue.config.productionTip = false;
 //
 Vue.prototype.$http = axios;
 //
-import '../_mock/index';
+import '../mock';
+import { mockXHR } from '../mock';
+mockXHR();
 new Vue({
   render: h => h(App)
 }).$mount('#app');

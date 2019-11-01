@@ -1,16 +1,14 @@
 <template>
   <div class="hello">
-    11
     <ul>
-      <li>q</li>
+      <li v-for="product in products" v-bind:key="product.id">{{ product.title }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-// import api from '@/utils/request.js';
 import {
-  product
+  productList
 } from '@/api/product';
 // import Axios from 'axios';
 export default {
@@ -18,7 +16,7 @@ export default {
   props: {},
   data() {
     return {
-      list: []
+      products: []
     };
   },
   created() {
@@ -26,8 +24,9 @@ export default {
   },
   methods: {
     getProduct: function() {
-      product({}).then(res => {
-        console.log(res);
+      productList({}).then(res => {
+        console.log(res.data.items);
+        this.products = res.data.items;
       });
     }
   }
