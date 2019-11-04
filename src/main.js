@@ -3,6 +3,7 @@ import axios from 'axios';
 import App from './App.vue';
 // 引入样式
 import '@/assets/styles/styles.scss';
+import './icons';
 Vue.config.productionTip = false;
 //
 Vue.prototype.$http = axios;

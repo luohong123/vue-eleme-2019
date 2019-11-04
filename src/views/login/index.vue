@@ -14,7 +14,7 @@
       <a href="javascript:;">《用户服务协议》</a>和
       <a href="javascript:;">《隐私权政策》</a>
     </section>
-    <button class="login-submit" type="text">
+    <button class="login-submit" type="text" v-on:click="login">
       登录
     </button>
   </form>
@@ -22,7 +22,12 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  methods:{
+    login:function() {
+      this.$router.push('/home')
+    }
+  }
 };
 </script>
 <style scoped lang="scss">

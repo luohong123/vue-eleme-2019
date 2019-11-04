@@ -7,9 +7,24 @@ const router = new Router({
     path: '/',
     component: Layout,
     children: [{
-      path: '/',
-      component: () => import('@/views/login/index')
+      path: '/place', // 首页-tab
+      component: () => import('@/views/place/index')
+    }, {
+      path: '/discover', // 发现
+      component: () => import('@/views/discover/index')
+    }, {
+      path: '/order', // 订单
+      component: () => import('@/views/order/index')
+    }, {
+      path: '/profile', // 我的
+      component: () => import('@/views/profile/index')
     }]
+  }, {
+    path: '/home',
+    component: () => import('@/views/home/index')
+  }, {
+    path: '/login',
+    component: () => import('@/views/login/index')
   }]
 });
 export default router;
