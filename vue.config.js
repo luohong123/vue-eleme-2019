@@ -5,9 +5,11 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 // 默认端口为 8080
-const port = process.env.port;
+// const port = 8080;
+const port = process.env.port || 8080;
 const VUE_APP_BASE_API = '/dev-api';
 const name = 'vue-eleme-2019';
+console.log(port, 'port');
 console.log(process.env.NODE_ENV, 'process.env.NODE_ENV');
 module.exports = {
   /**
@@ -29,7 +31,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: {
+    proxy: { // 如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [VUE_APP_BASE_API]: {
@@ -93,7 +95,6 @@ module.exports = {
         return options;
       })
       .end();
-
     config
       // https://webpack.js.org/configuration/devtool/#development
       .when(process.env.NODE_ENV === 'development', config =>

@@ -7,8 +7,8 @@ const router = new Router({
     path: '/',
     component: Layout,
     children: [{
-      path: '/place', // 首页-tab
-      component: () => import('@/views/place/index')
+      path: '/msite', // 首页-tab
+      component: () => import('@/views/msite/index')
     }, {
       path: '/discover', // 发现
       component: () => import('@/views/discover/index')
@@ -19,6 +19,9 @@ const router = new Router({
       path: '/profile', // 我的
       component: () => import('@/views/profile/index')
     }]
+  }, {
+    path: '/msite/food',
+    component: () => import('@/views/food/index')
   }, {
     path: '/home',
     component: () => import('@/views/home/index')

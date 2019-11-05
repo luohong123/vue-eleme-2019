@@ -1,12 +1,16 @@
 <template>
   <div>
-    MySite
+    <swiperitem />
   </div>
 </template>
 
 <script>
+import swiperitem from './SwiperItem';
 export default {
-  name: 'MySite',
+  name: 'Msite',
+  components: {
+    swiperitem
+  },
   methods:{
     
   }

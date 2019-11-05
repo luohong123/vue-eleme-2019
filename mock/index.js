@@ -1,8 +1,10 @@
 console.log('mockstart');
 import Mock from 'mockjs';
 import product from './product';
+import msite from './msite';
 const mocks = [
-  ...product
+  product
+  // msite
 ];
 /**
  * @param {string} url

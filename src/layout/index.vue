@@ -24,7 +24,7 @@ export default {
         name: '首页',
         icon: 'home',
         activeIcon: 'home-active',
-        router: '/place'
+        router: '/msite'
       }, {
         id: 2,
         name: '发现',
