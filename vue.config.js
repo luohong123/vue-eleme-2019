@@ -1,6 +1,5 @@
 'use strict';
 const path = require('path');
-
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -24,6 +23,20 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  configureWebpack: config => {
+    require('@vux/loader').merge(config, {
+      plugins: ['vux-ui', {
+        // name: 'less-theme',
+        // path: 'src/theme.less'
+      }],
+      name: name,
+      resolve: {
+        alias: {
+          '@': resolve('src')
+        }
+      }
+    });
+  },
   devServer: {
     port: port,
     open: true,
@@ -54,16 +67,16 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    // provide the app's title in webpack's name field, so that
-    // it can be accessed in index.html to inject the correct title.
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
-      }
-    }
-  },
+  // configureWebpack: {
+  //   // provide the app's title in webpack's name field, so that
+  //   // it can be accessed in index.html to inject the correct title.
+  //   name: name,
+  //   resolve: {
+  //     alias: {
+  //       '@': resolve('src')
+  //     }
+  //   }
+  // },
   chainWebpack(config) {
     config.plugins.delete('preload'); // TODO: need test
     config.plugins.delete('prefetch'); // TODO: need test
