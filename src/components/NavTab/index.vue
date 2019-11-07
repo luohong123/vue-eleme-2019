@@ -22,7 +22,7 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
  .nav-tab {
     width: 100%;
     position: fixed;

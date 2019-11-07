@@ -30,8 +30,9 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
-$borderColor: #ddd;
+<style lang="less">
+@import '../../styles/utils/_varables.less';
+
 .login {
   width: 300px;
   display: flex;

@@ -8,6 +8,6 @@ export default {
   name: 'ListItem'
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 
 </style>

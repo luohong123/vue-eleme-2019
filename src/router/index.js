@@ -23,6 +23,9 @@ const router = new Router({
     path: '/msite/food',
     component: () => import('@/views/food/index')
   }, {
+    path: '/shop',
+    component: () => import('@/views/shop/index')
+  }, {
     path: '/home',
     component: () => import('@/views/home/index')
   }, {

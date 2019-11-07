@@ -1,12 +1,14 @@
 <template>
   <div>
-    Discover
+    shop
+
+    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Discover',
+  name: 'Profile',
   methods:{
     
   }
