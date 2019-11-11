@@ -14,7 +14,6 @@ import '../mock';
 import { mockXHR } from '../mock/index';
 
 mockXHR();
-
 import router from './router';
 new Vue({
   el: '#app',

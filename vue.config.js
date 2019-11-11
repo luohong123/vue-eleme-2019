@@ -25,10 +25,13 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: config => {
     require('@vux/loader').merge(config, {
-      plugins: ['vux-ui', {
-        name: 'less-theme',
-        path: 'src/assets/styles/theme/theme.less'
-      }],
+      plugins: [
+        'vux-ui',
+        {
+          name: 'less-theme',
+          path: 'src/assets/styles/theme/theme.less'
+        }
+      ],
       name: name,
       resolve: {
         alias: {
@@ -44,7 +47,8 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: { // 如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器
+    proxy: {
+      // 如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器
       // change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [VUE_APP_BASE_API]: {
@@ -61,10 +65,26 @@ module.exports = {
     loaderOptions: {
       css: {
         // 这里的选项会传递给 css-loader
-      },
-      postcss: {
-        // 这里的选项会传递给 postcss-loader
       }
+      // postcss: {
+      //   // 这里的选项会传递给 postcss-loader
+      //   'postcss-px-to-viewport': {
+      //     unitToConvert: 'px',
+      //     viewportWidth: 750,
+      //     unitPrecision: 5,
+      //     propList: ['*'],
+      //     viewportUnit: 'vw',
+      //     fontViewportUnit: 'vw',
+      //     selectorBlackList: [],
+      //     minPixelValue: 1,
+      //     mediaQuery: false,
+      //     replace: true,
+      //     exclude: [],
+      //     landscape: false,
+      //     landscapeUnit: 'vw',
+      //     landscapeWidth: 568
+      //   }
+      // }
     }
   },
   // configureWebpack: {
